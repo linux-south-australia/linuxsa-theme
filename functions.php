@@ -113,11 +113,7 @@ add_action( 'after_setup_theme', 'linuxsa_theme_setup' );
 
 /**
  * Return the Google font stylesheet URL, if available.
- *
- * The use of Source Sans Pro and Bitter by default is localized. For languages
- * that use characters not supported by the font, the font can be disabled.
- *
- * @since Twenty Thirteen 1.0
+ * Use Ubuntu and Open Sans from Google fonts.
  *
  * @return string Font stylesheet or empty string if disabled.
  */
@@ -128,26 +124,26 @@ function linuxsa_theme_fonts_url() {
 	 * supported by Ubuntu, translate this to 'off'. Do not translate
 	 * into your own language.
 	 */
-	$ubuntu = _x( 'on', 'Source Sans Pro font: on or off', 'twentythirteen' );
+	$ubuntu = _x( 'on', 'Ubuntu font: on or off', 'twentythirteen' );
 
 	/* Translators: If there are characters in your language that are not
-	 * supported by Bitter, translate this to 'off'. Do not translate into your
+	 * supported by Open Sans, translate this to 'off'. Do not translate into your
 	 * own language.
 	 */
-	$bitter = _x( 'on', 'Bitter font: on or off', 'twentythirteen' );
+	$open_sans = _x( 'on', 'Open Sans font: on or off', 'twentythirteen' );
 
-	if ( 'off' !== $ubuntu || 'off' !== $bitter ) {
+	if ( 'off' !== $ubuntu || 'off' !== $open_sans ) {
 		$font_families = array();
 
 		if ( 'off' !== $ubuntu )
 			$font_families[] = 'Ubuntu:400,500,700';
 
-		if ( 'off' !== $bitter )
-			$font_families[] = 'Bitter:400,700';
+		if ( 'off' !== $open_sans )
+			$font_families[] = 'Open Sans:400,600,700';
 
 		$query_args = array(
 			'family' => urlencode( implode( '|', $font_families ) ),
-			'subset' => urlencode( 'latin,latin-ext' ),
+			'subset' => urlencode( 'latin' ),
 		);
 		$fonts_url = add_query_arg( $query_args, "//fonts.googleapis.com/css" );
 	}

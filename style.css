@@ -19,6 +19,15 @@ Use it to make something cool, have fun, and share what you've learned with othe
 body {
     padding-top: 50px;
     padding-bottom: 20px;
+    font-family: "Open Sans", Helvetica, sans-serif;
+    font-weight: 400;
+    color: #111;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Ubuntu", Helvetica, sans-serif;
+    font-weight: 500;
+    color: #333;
 }
 
 .jumbotron {
@@ -44,7 +53,7 @@ body {
 .site-title {
     font-family: "Ubuntu", Helvetica, sans-serif;
 	font-size: 60px;
-	font-weight: bold;
+	font-weight: 500;
 	line-height: 1;
 	margin: 0;
 	padding: 10px 0;
