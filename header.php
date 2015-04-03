@@ -4,33 +4,50 @@
  *
  * Displays all of the <head> section and everything up till <div id="main">
  *
+ * Updated all the old shit in TwentyThirteen to use HTML5 Boilerplate & Bootstrap -bp 2015/4
+ *
  * @package WordPress
- * @subpackage Twenty_Thirteen
- * @since Twenty Thirteen 1.0
+ * @subpackage LinuxSA_Theme
+ * @since LinuxSA Theme 1.0
  */
-?><!DOCTYPE html>
-<!--[if IE 7]>
-<html class="ie ie7" <?php language_attributes(); ?>>
-<![endif]-->
-<!--[if IE 8]>
-<html class="ie ie8" <?php language_attributes(); ?>>
-<![endif]-->
-<!--[if !(IE 7) & !(IE 8)]><!-->
-<html <?php language_attributes(); ?>>
-<!--<![endif]-->
+?><!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" <?php language_attributes(); ?>> <!--<![endif]-->
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
-	<meta name="viewport" content="width=device-width">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="<?php bloginfo( 'description' ); ?>">
 	<title><?php wp_title( '|', true, 'right' ); ?></title>
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
-	<!--[if lt IE 9]>
-	<script src="<?php echo get_template_directory_uri(); ?>/js/html5.js"></script>
-	<![endif]-->
-	<?php wp_head(); ?>
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/bootstrap.min.css">
+    <style>
+        body {
+            padding-top: 50px;
+            padding-bottom: 20px;
+        }
+    </style>
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/bootstrap-theme.min.css">
+
+    <?php // The main stylesheet ?>
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/style.css">
+
+    <script src="<?php echo get_template_directory_uri(); ?>/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+
+    <?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>
+
+    <!--[if lt IE 8]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
 	<div id="page" class="hfeed site">
 		<header id="masthead" class="site-header" role="banner">
 			<a class="home-link" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
