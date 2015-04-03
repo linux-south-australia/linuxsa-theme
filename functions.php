@@ -57,7 +57,8 @@ if ( version_compare( $GLOBALS['wp_version'], '3.6-alpha', '<' ) )
  *
  * @since Twenty Thirteen 1.0
  */
-function twentythirteen_setup() {
+
+function linuxsa_theme_setup() {
 	/*
 	 * Makes Twenty Thirteen available for translation.
 	 *
@@ -72,7 +73,7 @@ function twentythirteen_setup() {
 	 * This theme styles the visual editor to resemble the theme style,
 	 * specifically font, colors, icons, and column width.
 	 */
-	add_editor_style( array( 'css/editor-style.css', 'genericons/genericons.css', twentythirteen_fonts_url() ) );
+	//add_editor_style( array( 'css/editor-style.css', 'genericons/genericons.css', twentythirteen_fonts_url() ) );
 
 	// Adds RSS feed links to <head> for posts and comments.
 	add_theme_support( 'automatic-feed-links' );
@@ -81,9 +82,11 @@ function twentythirteen_setup() {
 	 * Switches default core markup for search form, comment form,
 	 * and comments to output valid HTML5.
 	 */
+    /*
 	add_theme_support( 'html5', array(
 		'search-form', 'comment-form', 'comment-list', 'gallery', 'caption'
 	) );
+    */
 
 	/*
 	 * This theme supports all available post formats by default.
@@ -94,19 +97,19 @@ function twentythirteen_setup() {
 	) );
 
 	// This theme uses wp_nav_menu() in one location.
-	register_nav_menu( 'primary', __( 'Navigation Menu', 'twentythirteen' ) );
+	register_nav_menu( 'primary', __( 'Navigation Menu', 'linuxsa-theme' ) );
 
 	/*
 	 * This theme uses a custom image size for featured images, displayed on
 	 * "standard" posts and pages.
 	 */
-	add_theme_support( 'post-thumbnails' );
-	set_post_thumbnail_size( 604, 270, true );
+	//add_theme_support( 'post-thumbnails' );
+	//set_post_thumbnail_size( 604, 270, true );
 
 	// This theme uses its own gallery styles.
-	add_filter( 'use_default_gallery_style', '__return_false' );
+	//add_filter( 'use_default_gallery_style', '__return_false' );
 }
-add_action( 'after_setup_theme', 'twentythirteen_setup' );
+add_action( 'after_setup_theme', 'linuxsa_theme_setup' );
 
 /**
  * Return the Google font stylesheet URL, if available.
@@ -118,14 +121,14 @@ add_action( 'after_setup_theme', 'twentythirteen_setup' );
  *
  * @return string Font stylesheet or empty string if disabled.
  */
-function twentythirteen_fonts_url() {
+function linuxsa_theme_fonts_url() {
 	$fonts_url = '';
 
 	/* Translators: If there are characters in your language that are not
-	 * supported by Source Sans Pro, translate this to 'off'. Do not translate
+	 * supported by Ubuntu, translate this to 'off'. Do not translate
 	 * into your own language.
 	 */
-	$source_sans_pro = _x( 'on', 'Source Sans Pro font: on or off', 'twentythirteen' );
+	$ubuntu = _x( 'on', 'Source Sans Pro font: on or off', 'twentythirteen' );
 
 	/* Translators: If there are characters in your language that are not
 	 * supported by Bitter, translate this to 'off'. Do not translate into your
@@ -133,11 +136,11 @@ function twentythirteen_fonts_url() {
 	 */
 	$bitter = _x( 'on', 'Bitter font: on or off', 'twentythirteen' );
 
-	if ( 'off' !== $source_sans_pro || 'off' !== $bitter ) {
+	if ( 'off' !== $ubuntu || 'off' !== $bitter ) {
 		$font_families = array();
 
-		if ( 'off' !== $source_sans_pro )
-			$font_families[] = 'Source Sans Pro:300,400,700,300italic,400italic,700italic';
+		if ( 'off' !== $ubuntu )
+			$font_families[] = 'Ubuntu:400,500,700';
 
 		if ( 'off' !== $bitter )
 			$font_families[] = 'Bitter:400,700';
@@ -154,52 +157,37 @@ function twentythirteen_fonts_url() {
 
 /**
  * Enqueue scripts and styles for the front end.
- *
- * @since Twenty Thirteen 1.0
  */
-function twentythirteen_scripts_styles() {
+function linuxsa_theme_scripts_styles() {
 	/*
 	 * Adds JavaScript to pages with the comment form to support
 	 * sites with threaded comments (when in use).
 	 */
+    // All comments are disabled - see comments.php
+    /*
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) )
 		wp_enqueue_script( 'comment-reply' );
+    */
 
-	// Adds Masonry to handle vertical alignment of footer widgets.
-	if ( is_active_sidebar( 'sidebar-1' ) )
-		wp_enqueue_script( 'jquery-masonry' );
+	// Add Ubuntu font
+	wp_enqueue_style( 'linuxsa-theme-fonts', linuxsa_theme_fonts_url(), array(), null );
 
-	// Loads JavaScript file with functionality specific to Twenty Thirteen.
-	wp_enqueue_script( 'twentythirteen-script', get_template_directory_uri() . '/js/functions.js', array( 'jquery' ), '2014-06-08', true );
-
-	// Add Source Sans Pro and Bitter fonts, used in the main stylesheet.
-	wp_enqueue_style( 'twentythirteen-fonts', twentythirteen_fonts_url(), array(), null );
-
-	// Add Genericons font, used in the main stylesheet.
-	wp_enqueue_style( 'genericons', get_template_directory_uri() . '/genericons/genericons.css', array(), '3.03' );
-
+    // This is now in header.php - follow HTML5 Bootstrap conventions
+    /*
 	// Loads our main stylesheet.
-	wp_enqueue_style( 'twentythirteen-style', get_stylesheet_uri(), array(), '2013-07-18' );
-
-	// Loads the Internet Explorer specific stylesheet.
-	wp_enqueue_style( 'twentythirteen-ie', get_template_directory_uri() . '/css/ie.css', array( 'twentythirteen-style' ), '2013-07-18' );
-	wp_style_add_data( 'twentythirteen-ie', 'conditional', 'lt IE 9' );
+	wp_enqueue_style( 'linuxsa-theme-style', get_stylesheet_uri(), array(), '2015-04-03' );
+    */
 }
-add_action( 'wp_enqueue_scripts', 'twentythirteen_scripts_styles' );
+add_action( 'wp_enqueue_scripts', 'linuxsa_theme_scripts_styles' );
+
 
 /**
  * Filter the page title.
  *
  * Creates a nicely formatted and more specific title element text for output
  * in head of document, based on current view.
- *
- * @since Twenty Thirteen 1.0
- *
- * @param string $title Default title text for current view.
- * @param string $sep   Optional separator.
- * @return string The filtered title.
  */
-function twentythirteen_wp_title( $title, $sep ) {
+function linuxsa_theme_wp_title( $title, $sep ) {
 	global $paged, $page;
 
 	if ( is_feed() )
@@ -219,14 +207,13 @@ function twentythirteen_wp_title( $title, $sep ) {
 
 	return $title;
 }
-add_filter( 'wp_title', 'twentythirteen_wp_title', 10, 2 );
+add_filter( 'wp_title', 'linuxsa_theme_wp_title', 10, 2 );
+
 
 /**
  * Register two widget areas.
- *
- * @since Twenty Thirteen 1.0
  */
-function twentythirteen_widgets_init() {
+function linuxsa_theme_widgets_init() {
 	register_sidebar( array(
 		'name'          => __( 'Main Widget Area', 'twentythirteen' ),
 		'id'            => 'sidebar-1',
@@ -247,15 +234,14 @@ function twentythirteen_widgets_init() {
 		'after_title'   => '</h3>',
 	) );
 }
-add_action( 'widgets_init', 'twentythirteen_widgets_init' );
+add_action( 'widgets_init', 'linuxsa_theme_widgets_init' );
 
-if ( ! function_exists( 'twentythirteen_paging_nav' ) ) :
+
+if ( ! function_exists( 'linuxsa_theme_paging_nav' ) ) :
 /**
  * Display navigation to next/previous set of posts when applicable.
- *
- * @since Twenty Thirteen 1.0
  */
-function twentythirteen_paging_nav() {
+function linuxsa_theme_paging_nav() {
 	global $wp_query;
 
 	// Don't print empty markup if there's only one page.
@@ -280,13 +266,12 @@ function twentythirteen_paging_nav() {
 }
 endif;
 
-if ( ! function_exists( 'twentythirteen_post_nav' ) ) :
+
+if ( ! function_exists( 'linuxsa_theme_post_nav' ) ) :
 /**
  * Display navigation to next/previous post when applicable.
-*
-* @since Twenty Thirteen 1.0
 */
-function twentythirteen_post_nav() {
+function linuxsa_theme_post_nav() {
 	global $post;
 
 	// Don't print empty markup if there's nowhere to navigate.
@@ -309,15 +294,13 @@ function twentythirteen_post_nav() {
 }
 endif;
 
-if ( ! function_exists( 'twentythirteen_entry_meta' ) ) :
+
+if ( ! function_exists( 'linuxsa_theme_entry_meta' ) ) :
 /**
  * Print HTML with meta information for current post: categories, tags, permalink, author, and date.
  *
- * Create your own twentythirteen_entry_meta() to override in a child theme.
- *
- * @since Twenty Thirteen 1.0
  */
-function twentythirteen_entry_meta() {
+function linuxsa_theme_entry_meta() {
 	if ( is_sticky() && is_home() && ! is_paged() )
 		echo '<span class="featured-post">' . __( 'Sticky', 'twentythirteen' ) . '</span>';
 
@@ -347,18 +330,15 @@ function twentythirteen_entry_meta() {
 }
 endif;
 
-if ( ! function_exists( 'twentythirteen_entry_date' ) ) :
+
+if ( ! function_exists( 'linuxsa_theme_entry_date' ) ) :
 /**
  * Print HTML with date information for current post.
- *
- * Create your own twentythirteen_entry_date() to override in a child theme.
- *
- * @since Twenty Thirteen 1.0
  *
  * @param boolean $echo (optional) Whether to echo the date. Default true.
  * @return string The HTML-formatted post date.
  */
-function twentythirteen_entry_date( $echo = true ) {
+function linuxsa_theme_entry_date( $echo = true ) {
 	if ( has_post_format( array( 'chat', 'status' ) ) )
 		$format_prefix = _x( '%1$s on %2$s', '1: post format name. 2: date', 'twentythirteen' );
 	else
@@ -377,6 +357,7 @@ function twentythirteen_entry_date( $echo = true ) {
 	return $date;
 }
 endif;
+
 
 if ( ! function_exists( 'twentythirteen_the_attached_image' ) ) :
 /**
