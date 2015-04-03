@@ -5,20 +5,19 @@
  * Displays all of the <head> section and everything up till <div id="main">
  *
  * Updated all the old shit in TwentyThirteen to use HTML5 Boilerplate & Bootstrap -bp 2015/4
- *
- * @package WordPress
- * @subpackage LinuxSA_Theme
- * @since LinuxSA Theme 1.0
  */
+
 ?><!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" <?php language_attributes(); ?>> <!--<![endif]-->
 <head>
-	<meta charset="<?php bloginfo( 'charset' ); ?>">
+	<?php // These 3 meta tags must come first in <head> ?>
+    <meta charset="<?php bloginfo( 'charset' ); ?>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+
     <meta name="description" content="<?php bloginfo( 'description' ); ?>">
 	<title><?php wp_title( '|', true, 'right' ); ?></title>
 	<link rel="profile" href="http://gmpg.org/xfn/11">
@@ -43,23 +42,71 @@
         <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-	<div id="page" class="hfeed site">
-		<header id="masthead" class="site-header" role="banner">
+    <!--
 
-            <div id="navbar" class="navbar">
-                <nav id="site-navigation" class="navigation main-navigation" role="navigation">
-                    <button class="menu-toggle"><?php _e( 'Menu', 'twentythirteen' ); ?></button>
-                    <a class="screen-reader-text skip-link" href="#content" title="<?php esc_attr_e( 'Skip to content', 'twentythirteen' ); ?>"><?php _e( 'Skip to content', 'twentythirteen' ); ?></a>
-                    <?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-menu' ) ); ?>
                     <?php get_search_form(); ?>
-                </nav><!-- #site-navigation -->
-            </div><!-- #navbar -->
 
-			<a class="home-link" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
-				<h1 class="site-title"><?php bloginfo( 'name' ); ?></h1>
-				<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
-			</a>
+    -->
 
-		</header><!-- #masthead -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <!-- <a class="navbar-brand" href="#">Project name</a> -->
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
 
-		<div id="main" class="site-main">
+            <?php
+                wp_nav_menu(array(
+                    'theme_location' => 'primary',
+                    'container' => false,               // no container
+                    'menu_class' => 'nav navbar-nav',
+                    'echo' => true,
+                ));
+            ?>
+
+            <!--
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+                <li><a href="#">Link</a></li>
+            </ul>
+            -->
+
+            <form class="navbar-form navbar-right" role="search">
+                <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search">
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+
+        </div><!--/.navbar-collapse -->
+    </div>
+    </nav>
+
+    <div class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <div class="col-x-6 col-md-4">
+                <a class="home-link" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
+                    <img class="tux center-block" src="<?php echo get_template_directory_uri(); ?>/images/tux.svg">
+                    <h1 class="site-title"><?php bloginfo( 'name' ); ?></h1>
+                </a>
+            </div>
+
+            <div class="col-xs-12 col-md-8">
+                    <h2 class="site-description"><?php bloginfo( 'description' ); ?></h1>
+            </div>
+        </div>
+    </div>
+    </div>
+
+	<div class="container hfeed">
+
+        <div class="row">
+
+		<div id="main" class="col-xs-12 col-md-8 col-md-offset-2">

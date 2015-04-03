@@ -8,15 +8,17 @@
 ?>
 
 		</div><!-- #main -->
-		<footer id="colophon" class="site-footer" role="contentinfo">
+
+		<footer role="contentinfo">
 			<?php get_sidebar( 'main' ); ?>
 
-			<div class="site-info">
-				<?php do_action( 'twentythirteen_credits' ); ?>
-				<a href="<?php echo esc_url( __( 'http://wordpress.org/', 'twentythirteen' ) ); ?>" title="<?php esc_attr_e( 'Semantic Personal Publishing Platform', 'twentythirteen' ); ?>"><?php printf( __( 'Proudly powered by %s', 'twentythirteen' ), 'WordPress, and penguins' ); ?></a>
-			</div><!-- .site-info -->
-		</footer><!-- #colophon -->
-	</div><!-- #page -->
+			<?php do_action( 'twentythirteen_credits' ); ?>
+			<a href="<?php echo esc_url( __( 'http://wordpress.org/', 'twentythirteen' ) ); ?>" title="<?php esc_attr_e( 'Semantic Personal Publishing Platform', 'twentythirteen' ); ?>"><?php printf( __( 'Proudly powered by %s', 'twentythirteen' ), 'WordPress, and penguins' ); ?></a>
+		</footer>
+
+    </div><!-- /.row -->
+
+	</div><!-- /.container -->
 
 	<?php wp_footer(); ?>
 
