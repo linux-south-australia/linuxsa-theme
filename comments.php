@@ -1,4 +1,8 @@
 <?php
+
+// Comments permanently disabled.
+return false;
+
 /**
  * The template for displaying Comments
  *
