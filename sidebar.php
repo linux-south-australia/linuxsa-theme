@@ -1,22 +1,47 @@
 <?php
 /**
- * The sidebar containing the secondary widget area
- *
- * Displays on posts and pages.
- *
- * If no active widgets are in this sidebar, hide it completely.
+ * The sidebar containing the main widget area
  *
  * @package WordPress
- * @subpackage Twenty_Thirteen
- * @since Twenty Thirteen 1.0
+ * @subpackage Twenty_Fifteen
+ * @since Twenty Fifteen 1.0
  */
 
-if ( is_active_sidebar( 'sidebar-2' ) ) : ?>
-	<div id="tertiary" class="sidebar-container" role="complementary">
-		<div class="sidebar-inner">
-			<div class="widget-area">
-				<?php dynamic_sidebar( 'sidebar-2' ); ?>
+if ( has_nav_menu( 'primary' ) || has_nav_menu( 'social' ) || is_active_sidebar( 'sidebar-1' )  ) : ?>
+	<div id="secondary" class="secondary">
+
+		<?php if ( has_nav_menu( 'primary' ) ) : ?>
+			<nav id="site-navigation" class="main-navigation" role="navigation">
+				<?php
+					// Primary navigation menu.
+					wp_nav_menu( array(
+						'menu_class'     => 'nav-menu',
+						'theme_location' => 'primary',
+					) );
+				?>
+			</nav><!-- .main-navigation -->
+		<?php endif; ?>
+
+		<?php if ( has_nav_menu( 'social' ) ) : ?>
+			<nav id="social-navigation" class="social-navigation" role="navigation">
+				<?php
+					// Social links navigation menu.
+					wp_nav_menu( array(
+						'theme_location' => 'social',
+						'depth'          => 1,
+						'link_before'    => '<span class="screen-reader-text">',
+						'link_after'     => '</span>',
+					) );
+				?>
+			</nav><!-- .social-navigation -->
+		<?php endif; ?>
+
+		<?php if ( is_active_sidebar( 'sidebar-1' ) ) : ?>
+			<div id="widget-area" class="widget-area" role="complementary">
+				<?php dynamic_sidebar( 'sidebar-1' ); ?>
 			</div><!-- .widget-area -->
-		</div><!-- .sidebar-inner -->
-	</div><!-- #tertiary -->
+		<?php endif; ?>
+
+	</div><!-- .secondary -->
+
 <?php endif; ?>
