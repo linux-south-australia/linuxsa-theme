@@ -103,7 +103,7 @@
     </div>
     </div>
 
-	<div class="container hfeed">
+	<div id="foo" class="container hfeed">
 
         <div class="row">
 
