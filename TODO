@@ -1,22 +1,13 @@
-- Look at 2015 theme and pull in any cool stuff
+- fix fucked design
 
-- Go through theme files and
-	- Apply bootstrap grid 
-	- Remove unused templates
-
-- Set up Sass bootstrap workflow
+- integrate calendar
 
 - Code Walker class for proper menu bootstrap integration
-
-- Fix htaccess to get wordpress seeing menu pages
+    (MOBILE SUPPPORT)
 
 - Plugin to manage talk media
 
-- Check with Kylie about design stuff
-
 - Footer layout
-
-- Credit for tux image
 
 - Mobile tests
 

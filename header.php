@@ -18,15 +18,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <link rel="profile" href="http://gmpg.org/xfn/11">
+    <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
+
     <meta name="description" content="<?php bloginfo( 'description' ); ?>">
 	<title><?php wp_title( '|', true, 'right' ); ?></title>
-	<link rel="profile" href="http://gmpg.org/xfn/11">
-	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
+
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
-
-    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/bootstrap.min.css">
-
-    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/bootstrap-theme.min.css">
 
     <?php // The main stylesheet ?>
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/style.css">
@@ -91,15 +89,15 @@
     <div class="jumbotron">
     <div class="container">
         <div class="row">
-            <div class="col-x-6 col-md-4">
+            <div class="col-xs-6 col-md-4">
                 <a class="home-link" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
-                    <img class="tux center-block" src="<?php echo get_template_directory_uri(); ?>/images/tux.svg">
+                    <img class="tux center-block" src="<?php echo get_template_directory_uri(); ?>/images/tux_good.svgz">
                     <h1 class="site-title"><?php bloginfo( 'name' ); ?></h1>
                 </a>
             </div>
 
             <div class="col-xs-12 col-md-8">
-                    <h2 class="site-description"><?php bloginfo( 'description' ); ?></h1>
+                <h2 class="site-description"><?php bloginfo( 'description' ); ?></h1>
             </div>
         </div>
     </div>
@@ -109,4 +107,5 @@
 
         <div class="row">
 
-		<div id="main" class="col-xs-12 col-md-8 col-md-offset-2">
+		<div id="main" class="col-xs-12 col-md-8">
+

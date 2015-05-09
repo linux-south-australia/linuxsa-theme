@@ -1,0 +1,107 @@
+/*
+Theme Name: Linux SA Epic Amazing Theme
+Theme URI: http://www.linuxsa.org.au
+Author: Ben Petering, David Lloyd, Kylie Willison
+Author URI: http://www.linuxsa.org.au
+Description: A theme based on design by Kylie and heavily modified code from default Twenty Thirteen theme
+Version: 0.9
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: linux
+Text Domain: twentythirteen
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+
+
+/*
+ * Variables and whatnot. These override variables used by Bootstrap
+ * so put this before bootstrap import.
+ * See http://getbootstrap.com/customize/ for variables (replace @ with $)
+ */
+
+// Bootstrap variables
+$headings-font-family: "Ubuntu", Helvetica, sans-serif;
+$navbar-inverse-bg: #3d5eb1;
+$navbar-inverse-link-color: #fff;
+$navbar-inverse-font-weight: bold;
+
+// Our variables (for custom CSS below, not overriding bootstrap stuff)
+$site-title-color: #fff;
+$site-description-color: #fff;
+$site-top-shit-shadow: 0 0 0.2em black;
+$navbar-inverse-link-hover-underline: darken(#3d5eb1, 10%);
+
+/*
+ * Bootstrap import
+ */
+@import "bootstrap";
+
+
+/*
+ * Direct custom CSS
+ */
+
+
+/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    // font-family: "Open Sans", Helvetica, sans-serif;
+    // font-weight: 400;
+    // color: #111;
+}
+
+.jumbotron {
+    background: url(images/headerbg03.jpg);
+    padding: 20px 0;
+}
+
+.tux {
+    width: 150px;
+    margin-bottom: -30px;
+}
+
+/**
+ * Header
+ * ----------------------------------------------------------------------------
+ */
+
+.home-link:hover {
+    text-decoration: none;
+    // color: #333;
+}
+
+.site-title {
+ //    font-family: "Ubuntu", Helvetica, sans-serif;
+	// font-size: 60px;
+	// font-weight: 500;
+	// line-height: 1;
+	margin: 0;
+	padding: 10px 0;
+    text-align: center;
+    color: $site-title-color !important;
+    text-shadow: $site-top-shit-shadow;
+    // 1px 1px 2px black,
+}
+
+.site-description {
+	// font: 300 24px "Ubuntu", Helvetica, sans-serif;
+	margin: 0;
+    color: $site-description-color;
+    text-shadow: $site-top-shit-shadow;
+}
+
+
+
+/**
+ * Navbar
+ */
+.navbar-inverse .navbar-nav > li > a {
+    font-weight: $navbar-inverse-font-weight;
+}
+
+.navbar-inverse .navbar-nav > li > a:hover {
+    box-shadow: inset 0 -7px 0 $navbar-inverse-link-hover-underline;
+}
