@@ -9,20 +9,20 @@
 
 		</div><!-- #main -->
 
-        <div class="col-xs-12 col-md-4">
+        <div class="col-xs-12 col-md-offset-2 col-md-2">
             <?php get_sidebar(); ?>
         </div>
 
 
     </div><!-- /.row -->
 
-    <div class="row">
+    <div class="row footer-row">
 
         <footer role="contentinfo" class="col-xs-12 col-md-4 col-md-offset-4">
             <?php do_action( 'twentythirteen_credits' ); ?>
             <a href="<?php echo esc_url( __( 'http://wordpress.org/', 'twentythirteen' ) ); ?>" title="<?php esc_attr_e( 'Semantic Personal Publishing Platform', 'twentythirteen' ); ?>"><?php printf( __( 'Proudly powered by %s', 'twentythirteen' ), 'WordPress, and penguins' ); ?></a>
             <br>
-            <p>Tux from <a href="https://commons.wikimedia.org/wiki/File:Tux.svg">here</a></p>
+            <p><a href="https://commons.wikimedia.org/wiki/File:Tux.svg">Tux</a></p>
         </footer>
 
     </div>

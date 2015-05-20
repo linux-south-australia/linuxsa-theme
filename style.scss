@@ -23,7 +23,7 @@ Use it to make something cool, have fun, and share what you've learned with othe
 
 // Bootstrap variables
 $headings-font-family: "Ubuntu", Helvetica, sans-serif;
-$navbar-inverse-bg: #3d5eb1;
+$navbar-inverse-bg: darken(#3d5eb1, 5%);
 $navbar-inverse-link-color: #fff;
 $navbar-inverse-font-weight: bold;
 
@@ -31,7 +31,7 @@ $navbar-inverse-font-weight: bold;
 $site-title-color: #fff;
 $site-description-color: #fff;
 $site-top-shit-shadow: 0 0 0.2em black;
-$navbar-inverse-link-hover-underline: darken(#3d5eb1, 10%);
+$navbar-inverse-link-hover-underline: lighten(#3d5eb1, 15%);
 $main-bottom-top-color: $navbar-inverse-bg;
 
 /*
@@ -57,6 +57,7 @@ body {
 .jumbotron {
     background: url(images/headerbg03.jpg);
     padding: 20px 0;
+    border-bottom: 7px solid $main-bottom-top-color;
 }
 
 .tux {
@@ -66,7 +67,6 @@ body {
 
 #foo {
     margin-top: -30px;
-    border-top: 7px solid $main-bottom-top-color;
 }
 
 /**
@@ -97,6 +97,8 @@ body {
 	margin: 0;
     color: $site-description-color;
     text-shadow: $site-top-shit-shadow;
+    text-align: right;
+    padding-top: 30%;
 }
 
 
@@ -110,4 +112,45 @@ body {
 
 .navbar-inverse .navbar-nav > li > a:hover {
     box-shadow: inset 0 -7px 0 $navbar-inverse-link-hover-underline;
+}
+
+.navbar-fixed-top {
+    border-width: 0;
+}
+
+/**
+ * Body
+ */
+
+article.page {
+    padding-left: 7%;
+
+    th, td {
+        padding-bottom: 1em;
+        padding-right: 2em;
+    }
+
+    li {
+        margin-bottom: 1.5em;
+        li {
+            margin-bottom: 0.5em;
+        }
+    }
+}
+
+ul.nav-menu {
+    display: none;
+}
+
+
+/**
+ * Footer
+ */
+footer {
+    text-align: center;
+}
+
+.footer-row {
+    border-top: 7px solid $main-bottom-top-color;
+    padding-top: 1em;
 }
