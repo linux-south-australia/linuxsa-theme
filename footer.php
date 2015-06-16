@@ -9,8 +9,8 @@
 
 		</div><!-- #main -->
 
-        <div class="col-xs-12 col-md-offset-1 col-md-3 hidden-xs hidden-md">
-            <?php get_sidebar(); ?>
+        <div class="col-xs-12 col-md-offset-1 col-md-3">
+            <span class="visible-md-block visible-lg-block"><?php get_sidebar(); ?></span>
         </div>
 
 

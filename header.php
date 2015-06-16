@@ -99,7 +99,7 @@
             </div>
 
             <div class="col-xs-12 col-md-offset-2 col-md-6">
-                <h2 class="site-description"><?php bloginfo( 'description' ); ?></h1>
+                <h2 class="site-description visible-md-block visible-lg-block"><?php bloginfo( 'description' ); ?></h1>
             </div>
         </div>
     </div>
